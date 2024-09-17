@@ -1,0 +1,44 @@
+{%extends "layout.html"%}
+
+{%block update_contact%}
+<h2 class="text-center mt-5">Update Your Details</h2>
+<form method="post" class="form p-5 mx-5"></form>
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <div class="mb-3">
+        {{ form.first_name.label_tag }}
+        <input type="text" name="first_name" id="id_first_name" class="form-control" value="{{ form.first_name.value }}">
+        {{ form.first_name.errors }}
+    </div>
+
+    <div class="mb-3"></div>
+        {{ form.last_name.label_tag }}
+        <input type="text" name="last_name" id="id_last_name" class="form-control" value="{{ form.last_name.value}}">
+        {{ form.last_name.errors }}
+    </div>
+
+    <div class="mb-3"></div>
+        {{ form.email.label_tag }}
+        <input type="email" name="email" id="id_email" class="form-control" value="{{ form.email.value }}">
+        {{ form.email.errors }}
+    </div>
+
+    <div class="mb-3"></div>
+        {{ form.phone.label_tag }}
+        <input type="text" name="phone" id="id_phone" class="form-control" value="{{ form.phone.value }}">
+        {{ form.phone.errors }}
+    </div>
+
+    <div class="mb-3">
+        {{ form.address.label_tag }}
+        <textarea name="address" id="id_address" rows="3" cols="40" class="form-control">{{ form.address.value }}</textarea>
+        {{ form.address.errors }}
+    </div>
+    <button type="submit" class="btn btn-primary">Update Contact</button>
+</form>
+{%endblock%}
+
+{%block title%}
+Update
+{%endblock%}

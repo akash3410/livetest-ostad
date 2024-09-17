@@ -1,0 +1,23 @@
+{%extends "layout.html"%}
+
+
+{%block allcontact%}
+      {% for contact in contacts %}
+      <div class="card m-2" style="width: 18rem;">
+        <div class="card-body">
+          <a href="{%url "contact_details" contact.pk%}" class="card-title">
+            {{contact.first_name}}
+          </a>
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{contact.email}}</h6>
+          <p class="card-text">{{contact.phone}}</p>
+
+          <a href="{%url "delete_con" contact.pk%}" class="card-link">Delete Contact</a>
+          <a href="{%url "update_contact" contact.pk%}" class="card-link">Edit Contact</a>
+        </div>
+      </div>
+      {%endfor%}
+{%endblock%}
+
+{%block title%}
+Home page
+{%endblock%}
